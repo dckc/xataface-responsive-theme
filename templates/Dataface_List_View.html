@@ -24,11 +24,6 @@
 		
 		{block name="before_result_list"}
 		{define_slot name="result_list"}
-		{if !$ENV.prefs.use_old_resultlist_controller}
-			<div class="result-list-actions">
-				{actions_menu id="result-list-actions" id_prefix="result-list-actions-" class="icon-only" category="result_list_actions"}
-			</div>
-		{/if}
 		<div id="list-window">
 		{if !$ENV.prefs.use_old_resultlist_controller}
 			{if !$ENV.prefs.hide_resultlist_controller}
@@ -46,6 +41,11 @@
 		{/define_slot}
 		{block name="after_result_list_content"}
 		</div>
+		{if !$ENV.prefs.use_old_resultlist_controller}
+			<div class="result-list-actions">
+				{actions_menu id="result-list-actions" id_prefix="result-list-actions-" class="icon-only" category="result_list_actions"}
+			</div>
+		{/if}
 		{if !$ENV.prefs.use_old_resultlist_controller}
 			{if !$ENV.prefs.hide_resultlist_controller}
 			{if ($ENV.resultSet->found() > $ENV.resultSet->limit()) or !$ENV.APPLICATION_OBJECT->prefs.show_resultlist_controller_only_when_needed}
